@@ -67,7 +67,8 @@ class HBNBCommand(cmd.Cmd):
             arg_list = [arg[:arg_found.span()[0]], arg[arg_found.span()[1]:]]
             arg_found = re.search(r"\((.*?)\)", arg_list[1])
             if arg_found is not None:
-                command = [arg_list[1][:arg_found.span()[0]], arg_found.group()[1:-1]]
+                command = [arg_list[1][:arg_found.span()[0]],
+                           arg_found.group()[1:-1]]
                 if command[0] in fcts_list.keys():
                     fct_call = "{} {}".format(arg_list[0], command[1])
                     return fcts_list[command[0]](fct_call)
